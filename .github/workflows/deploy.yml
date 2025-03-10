@@ -1,0 +1,37 @@
+name: Angular CI/CD on Render
+
+on:
+  push:
+    branches:
+      - main  # Runs CI/CD only for the main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest  # Runs on Ubuntu environment
+
+    steps:
+      - name: 🚀 Checkout Repository
+        uses: actions/checkout@v3  # Pulls the latest code
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version:  18.17.0  # Use the Node.js version your Angular app needs
+
+      - name: 📦 Install Dependencies
+        run: npm install  # Installs project dependencies
+
+      - name: 🔍 Lint Code
+        run: npm run lint  # Ensures code formatting is correct
+
+      - name: 🧪 Run Tests
+        run: npm test  # Runs test cases (if any)
+
+      - name: 🏗️ Build Angular App
+        run: ng build --configuration=production  # Builds production-ready app
+
+      - name: 🚀 Deploy to Render
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}  # Uses Render Deploy Hook
+        run: |
+          curl -X POST $RENDER_DEPLOY_HOOK
