@@ -24,8 +24,8 @@ jobs:
       - name: Lint Code (Ignore Errors)
         run: true || npm run lint
 
-      - name: 🧪 Run Tests
-        run: npm test  # Runs test cases (if any)
+      - name: 🧪 Run Tests in Headless Mode
+        run: ng test --watch=false --browsers=ChromeHeadless
 
       - name: 🏗️ Build Angular App
         run: ng build --configuration=production  # Builds production-ready app
