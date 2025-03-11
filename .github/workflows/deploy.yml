@@ -24,9 +24,6 @@ jobs:
       - name: Lint Code (Ignore Errors)
         run: true || npm run lint
 
-      - name: 🧪 Run Tests (Skip for Now)
-        run: echo "Skipping tests to speed up deployment"
-
       - name: 🏗️ Build Angular App
         run: ng build --configuration=production  # Builds production-ready app
 

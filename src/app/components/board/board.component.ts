@@ -7,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
   // Representation of the nine squares on the board
-  squares: ('X' | 'O' | null)[];
-  // Help us track whose turn it is
+  squares: ('X' | 'O' | null)[];  // Help us track whose turn it is
   xIsNext: boolean;
   // Will either be 'X', 'O', null, or undefined
   winner: 'X' | 'O' | null | undefined;

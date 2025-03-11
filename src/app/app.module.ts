@@ -14,13 +14,13 @@ import { GetClassPipe } from './pipes/get-class.pipe';
     AppComponent,
     SquareComponent,
     BoardComponent,
-    GetClassPipe,
+    GetClassPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,
-    MatCardModule,
+    MatCardModule
   ],
 
   providers: [],
