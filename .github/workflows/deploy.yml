@@ -25,7 +25,7 @@ jobs:
         run: true || npm run lint
 
       - name: 🏗️ Build Angular App
-        run: ng build --configuration=production  # Builds production-ready app
+        run: npx ng build --configuration=production
 
       - name: 🚀 Deploy to Render
         env:
